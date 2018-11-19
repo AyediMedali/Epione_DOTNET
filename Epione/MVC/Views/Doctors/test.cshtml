@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
+}
+
+<h2>test</h2>
+@ViewBag.result
+
+@using (Html.BeginForm("test","Doctors"))
+{
+    <input type="checkbox" name="nom"  value="true"/>
+    <input type="submit" value="submit" />
+    
+}
+<input class="date-picker" />
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+@section scripts{
+    
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script type="text/javascript">
+    $(function () {
+        // This will make every element with the class "date-picker" into a DatePicker element
+        $('.date-picker').datepicker();
+    })
+</script>
+
+    }

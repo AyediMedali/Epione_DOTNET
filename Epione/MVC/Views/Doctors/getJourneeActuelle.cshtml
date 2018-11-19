@@ -1,0 +1,37 @@
+﻿
+
+@if(ViewBag.error == 1)
+{
+    <div class="row results">
+        <div class="col-lg-12">
+            vous n'avez aucun rendez vous
+        </div>
+    </div>
+}else
+{
+
+foreach (dynamic h in ViewBag.result)
+{
+    String time = h.time;
+    <div class="row results">
+        <div class="col-lg-3">@time.Substring(0,5)</div>
+        @if (h.disponible == true)
+        {
+            <div class="col-lg-3" style="color : springgreen">Disponible</div>
+        }
+        else
+        {
+            <div class="col-lg-3">Occupée</div>
+        }
+        <div class="col-lg-3">---</div>
+        <div class="col-lg-3 action">
+            <div class="row ">
+                <div class="col-lg-6"><input type="submit" class="btn btn-warning" value="Modifier" /></div>
+                <div class="col-lg-6"><input type="submit" class="btn btn-danger" value="Supprimer" /></div>
+            </div>
+
+        </div>
+    </div>
+}
+
+}

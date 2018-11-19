@@ -1,0 +1,24 @@
+﻿
+.container {
+     box-shadow: 10px 10px 8px #888888;
+}
+.journeeSaisie{
+      width : 900px;
+    margin : auto;
+    background-color : whitesmoke;
+}
+.journeeSaisie .row{
+ 
+}
+.journeeSaisie .row div{
+    height : 50px;
+}
+.journeeSaisie .row .title h2{
+      text-align : center;
+      color: #4272d7;
+}
+.journeeSaisie .row .action .row div input{
+    
+    font-size : 11px;
+ 
+}

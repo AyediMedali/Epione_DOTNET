@@ -14,33 +14,45 @@ namespace MVC.Controllers
         // GET: User
         public ActionResult Index()
         {
-            return View();       
+            return View();
         }
-
+        public ActionResult LoginDoctor()
+        {
+            return View();
+        }
         [HttpPost]
-        public ActionResult LoginDoctor(String email , String password )
+        public ActionResult LoginDoctor(String email, String password)
         {
             HttpClient client = new HttpClient();
-            
-
             client.BaseAddress = new Uri("http://localhost:18080");
             HttpResponseMessage response = client.PostAsync("Epione-web/rest/users/logIn?email=" + email + "&password=" + password + "", null).Result;
             var jsonString = response.Content.ReadAsStringAsync();
 
             jsonString.Wait();
             JObject msg = JObject.Parse(jsonString.Result);
-            
-            if((int) msg["id"] != 0)
+
+            if ((int)msg["id"] != 0)
             {
                 Session["id"] = (int)msg["id"];
 
                 return RedirectToAction("Index", "Doctors");
-            }else
+            }
+            else
             {
                 return RedirectToAction("Index", "User");
             }
-            
 
+
+        }
+        public ActionResult LogOutDoctor()
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:18080");
+            HttpResponseMessage response = client.GetAsync("Epione-web/rest/users/logOut?id=" + (int)Session["id"]).Result;
+            var jsonString = response.Content.ReadAsStringAsync();
+            jsonString.Wait();
+
+            return RedirectToAction("Index", "User");
         }
 
         [HttpPost]

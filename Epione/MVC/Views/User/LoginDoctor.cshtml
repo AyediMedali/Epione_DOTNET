@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "LoginDoctor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .singIn{
+        width : 40%;
+        height : 300px;
+        padding-top : 20px;
+        padding-left : 180px;
+        margin-top : 50px;
+        background-color : gainsboro;
+         box-shadow: 10px 10px 8px #888888;
+    }
+  
+    .singIn div div h2{
+         color: #4272d7;
+    }
+    .singIn > div:nth-child(1){
+        margin-left : -75px;
+    }
+    .MyInput {
+        margin : 20px -110px;
+    }
+    .singIn div input:nth-child(1),.singIn div input:nth-child(2){
+        width : 300px;
+        height : 40px;
+        padding-left : 10px;
+    
+    }
+</style>
+<div class="container singIn">
+    <div class="row">
+        <div class="col-lg-12"><h2>Sign In Doctor</h2></div>
+    </div>
+    @using (Html.BeginForm("LoginDoctor", "User"))
+    {
+        <div class="row MyInput">
+            <div class="col-lg-12"><input type="text" name="email" placeholder="Email" /></div>
+        </div>
+
+        <div class="row MyInput">
+            <div class="col-lg-12"><input type="password" name="password" placeholder="Password" /></div>
+        </div>
+        <div class="row MyInput">
+            <div class="col-lg-12"><input class="btn btn-success" type="submit" name="submit" value="Connexion" /></div>
+        </div>
+    }
+ 
+</div>
+

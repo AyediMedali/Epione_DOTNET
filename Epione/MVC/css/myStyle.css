@@ -1,0 +1,9 @@
+﻿body {
+}
+.list nav ul li{
+    display : flex;
+}
+.list nav ul li i{
+    padding-top : 18px;
+    padding-right : 10px;
+}

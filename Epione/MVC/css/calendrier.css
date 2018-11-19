@@ -1,0 +1,37 @@
+﻿.container{
+     box-shadow: 10px 10px 8px #888888;
+        width : 900px;
+    margin : auto;
+    background-color : whitesmoke;
+}
+.container .row{
+    height : 50px;
+
+}
+.container .datePicker{
+    padding-top : 20px;
+    text-align : center;
+}
+.container .datePicker div .btn{
+    font-size : 11px;
+    
+}
+
+.container .title h2{
+    padding-top : 20px;
+    text-align:center;
+       color: #4272d7;
+}
+.container .menus{
+    padding-top : 20px;
+}
+.container .row div{
+     height : 50px;
+}
+.container .results{
+    padding-top : 20px;
+}
+.container .results .action div input{
+    font-size : 11px;
+  
+}

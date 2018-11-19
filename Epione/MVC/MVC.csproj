@@ -209,7 +209,11 @@
     <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\MyStylel.css" />
     <Content Include="Content\style2.css" />
+    <Content Include="css\calendrier.css" />
     <Content Include="css\font-face.css" />
+    <Content Include="css\getJourneeSaisie.css" />
+    <Content Include="css\motifStyles.css" />
+    <Content Include="css\myStyle.css" />
     <Content Include="css\theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -505,6 +509,11 @@
     <Content Include="Views\Demande\Delete.cshtml" />
     <Content Include="Views\Stat\Index.cshtml" />
     <Content Include="Views\Stat\GeneratePDF.cshtml" />
+    <Content Include="Views\Doctors\getJourneeActuelle.cshtml" />
+    <Content Include="Views\Doctors\getJourneeSaisie.cshtml" />
+    <Content Include="Views\Doctors\getlListMotifs.cshtml" />
+    <Content Include="Views\Doctors\test.cshtml" />
+    <Content Include="Views\User\LoginDoctor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

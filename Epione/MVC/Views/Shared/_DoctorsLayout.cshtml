@@ -7,14 +7,15 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
+
     @Styles.Render("~/templateDoctors/css")
- 
+
     <!-- Title Page-->
     <title>Dashboard</title>
 </head>
 <body class="animsition">
     <div class="page-wrapper">
-    
+
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
@@ -22,19 +23,17 @@
                     <img src="~/Images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
-            <div class="menu-sidebar__content js-scrollbar1">
+            <div class="menu-sidebar__content js-scrollbar1 list">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard
-                            </a>
-                           
+                        <li>
+
+                            <i class="fas fa-tachometer-alt"></i>@Html.ActionLink("Motifs", "getlListMotifs", "Doctors")
+
+
                         </li>
                         <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts
-                            </a>
+                            <i class="fas fa-tachometer-alt"></i>@Html.ActionLink("Calendrier", "Calendrier", "Doctors")
                         </li>
                         <li>
                             <a href="table.html">
@@ -72,7 +71,7 @@
                                 </li>
                             </ul>
                         </li>
-                       
+
                     </ul>
                 </nav>
             </div>
@@ -244,9 +243,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout
-                                                </a>
+                                                @Html.ActionLink("LogOut", "LogOutDoctor", "User")
                                             </div>
                                         </div>
                                     </div>
@@ -258,15 +255,16 @@
             </header>
             <!-- HEADER DESKTOP-->
             <!-- MAIN CONTENT-->
-            <div class="main-content">
+            <div class="main-content" style="border :1px solid red ; width : 99%">
                 @RenderBody()
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
     </div>
- 
+
     @Scripts.Render("~/templateDoctors/js")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 <!-- end document-->

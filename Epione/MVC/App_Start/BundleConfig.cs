@@ -38,7 +38,7 @@ namespace MVC
 
 
             bundles.Add(new StyleBundle("~/fontawesome/css").Include(
-               
+
                       "~/vendor/font-awesome-4.7/css/font-awesome.min.css",
                       "~/vendor/font-awesome-5/css/fontawesome-all.min.css"
                      ));
@@ -57,7 +57,10 @@ namespace MVC
                       "~/vendor/slick/slick.css",
                       "~/vendor/select2/select2.min.css",
                       "~/vendor/perfect-scrollbar/perfect-scrollbar.css",
-                      "~/css/theme.css"));
+                      "~/css/theme.css",
+                      "~/css/myStyle.css",
+                      "~/Content/themes/jquery-ui.min.css",
+                      "~/Content/themes/base/jquery-ui.min.css"));
 
             bundles.Add(new ScriptBundle("~/templateDoctors/js").Include(
                       "~/vendor/jquery-3.2.1.min.js", "~/vendor/bootstrap-4.1/popper.min.js",
@@ -72,8 +75,17 @@ namespace MVC
                       "~/vendor/perfect-scrollbar/perfect-scrollbar.js",
                       "~/vendor/chartjs/Chart.bundle.min.js",
                       "~/vendor/select2/select2.min.js",
-                      "~/js/main.js"));
+                      "~/js/main.js",
+                      "~/Scripts/jquery-ui-1.12.1.min.js"));
 
+            bundles.Add(new StyleBundle("~/motifsDoctor/css").Include(
+                     "~/css/motifStyles.css"));
+
+            bundles.Add(new StyleBundle("~/getJourneeSaisie/css").Include(
+                     "~/css/getJourneeSaisie.css"));
+
+            bundles.Add(new StyleBundle("~/calendrier/css").Include(
+                    "~/css/calendrier.css"));
 
         }
     }

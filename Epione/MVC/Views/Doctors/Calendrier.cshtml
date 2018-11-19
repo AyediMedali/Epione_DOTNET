@@ -4,21 +4,67 @@
     Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
 }
 
- @foreach (dynamic j in ViewBag.result)
- {
-        <ul>
-            <li>@j.id</li>
-            @{
-               
-                DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddMilliseconds((double)j.date).ToLocalTime();
-            }
-            <li>@dt</li>
-            @foreach (dynamic h in j.listHoraires)
+@Styles.Render("~/calendrier/css")
+
+<div class="container">
+
+    <div class="row datePicker">
+        <div class="col-lg-12">
+
+            @using (Html.BeginForm("getJourneeSaisie", "Doctors"))
             {
-                <li>@h.time</li>
-                <li>@h.disponible</li>
+                <input type="text" class="date-picker" name="date" />
+                <input type="submit" value="Recherche" class="btn btn-primary" />
             }
-        </ul> 
-    }
+
+        </div>
+    </div>
+    <div class="row title">
+        <div class="col-lg-12"><h2>Aujourd'hui</h2></div>
+    </div>
+    <div class="row menus">
+        <div class="col-lg-3">Heure</div>
+        <div class="col-lg-3">Disponibilité</div>
+        <div class="col-lg-3">Patient</div>
+        <div class="col-lg-3">Action</div>
+    </div>
+    @Html.Action("getJourneeActuelle", "Doctors")
+</div>
 
 
+
+
+
+@*@foreach (dynamic j in ViewBag.result)
+    {
+           <ul>
+               <li>@j.id</li>
+               @{
+
+                   DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddMilliseconds((double)j.date).ToLocalTime();
+               }
+               <li>@dt</li>
+               @foreach (dynamic h in j.listHoraires)
+               {
+                   <li>@h.time</li>
+                   <li>@h.disponible</li>
+               }
+           </ul>
+       }*@
+
+
+@section scripts{
+
+    <script>
+        $(function () {
+            // This will make every element with the class "date-picker" into a DatePicker element
+            $('.date-picker').datepicker({
+                dateFormat:"yy/mm/dd",
+                changeYear: true,
+                changeMonth : true,
+
+            });
+        })
+    </script>
+
+}
