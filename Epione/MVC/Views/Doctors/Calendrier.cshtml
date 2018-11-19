@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Calendrier";
+    Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
+}
+
+ @foreach (dynamic j in ViewBag.result)
+ {
+        <ul>
+            <li>@j.id</li>
+            @{
+               
+                DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddMilliseconds((double)j.date).ToLocalTime();
+            }
+            <li>@dt</li>
+            @foreach (dynamic h in j.listHoraires)
+            {
+                <li>@h.time</li>
+                <li>@h.disponible</li>
+            }
+        </ul> 
+    }
+
+

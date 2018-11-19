@@ -1,0 +1,206 @@
+﻿html{
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+    overflow-y : hidden;
+        overflow-x : hidden;
+}
+body{
+	background: url('../Images/background.jpg') no-repeat;
+	background-size : 100% 102% ;
+	height: 645px;
+
+}
+#modalLRForm{
+    overflow-y : hidden;  
+}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	width: 99%;
+	max-width: 100%;
+	height: 100px;
+	background-color: rgba(39,63,67,0.5);
+    margin-top : -60px;
+    margin : -40px auto;
+
+}
+.header .logo{
+	font-family: 'Sacramento', cursive;
+	font-size: 70px;
+	color: #fff;
+	margin-left: 100px;
+	cursor: pointer;
+}
+.header .menu{
+	display: flex;
+	justify-content: space-between;
+	width: 550px;
+    font-family: 'KoHo', sans-serif;
+}
+.header .menu button{
+	border : 1px solid white;
+	background-color: transparent;
+	color: white;
+	font-size: 15px;
+	cursor: pointer;
+	height: 50px;
+	margin-top: 25px;
+}
+.header .menu span{
+	display: flex;
+	justify-content: space-between;
+	font-size: 18px;
+	padding : 10px;
+	color: white;
+	cursor: pointer;
+	margin-right: 15px;
+}
+
+.header .menu span:nth-child(2){
+	width: 160px;
+	align-items: center;
+}
+.header .menu span:nth-child(3){
+	width: 140px;
+	align-items: center;	
+}
+.header .menu button:hover{
+	background-color: #6B7577;
+	opacity: 0.8;
+	color: white;
+}
+.header .menu button:focus{
+	outline: none;
+}
+.header .arrow-up{
+	display: none;
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border-right: 20px solid transparent;
+	border-left: 20px solid transparent;
+	border-bottom: 20px solid #fff;
+	right: 38px;
+    top: 92px;
+}
+.header .form{
+	display: none;
+	position: absolute;
+	width: 450px;
+	height: 370px;
+	background-color: rgba(255,255,255,0.9);
+	right: 20px;
+    top: 112px;
+    z-index: 1;
+     
+
+}
+.header .form .form-content{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 450px;
+	height: 370px;
+	background-color: rgba(255,255,255,0.2);
+    z-index: 1;
+}
+.header .form .form-content form{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	justify-content: space-around;
+   
+}
+.header .form .form-content form h2 , .header .form .form-content form h3{
+	margin: 0px auto;
+	color: #3c7556;
+    font-family: 'KoHo';
+}
+
+.header .form .form-content form input[type="text"],.header .form .form-content form input[type="password"]{
+	width: 350px;
+	height: 40px;
+	outline :0px;
+	border: 2px solid #eee;
+	border-radius: 8px;
+	padding-left: 10px;
+	font-size: 15px;
+	margin : 8px auto;
+    border : 1px solid yellow;
+}
+.header .form .form-content form input[type="submit"]{
+	width: 364px;
+	height: 45px;
+	border : 0px;
+	outline: 2px;
+	background-color: #465E51;
+	color: #fff;
+	font-size: 18px;
+	letter-spacing: 0.00em;
+	border-radius: 8px;
+	margin : 8px auto;
+	cursor: pointer;
+}
+.header .form .form-content form input[type="submit"]:hover{
+	background-color: #3a4941;
+}
+.header .form .form-content form a{
+	position: absolute;
+	right: 97px;
+	top: 196px;
+	font-size: 12px;
+}
+.header .form .form-content h4{
+	margin: 15px auto;
+	color: #3c7556;
+	font-size: 18px;
+}
+.header .form .form-content h4 a{
+	text-decoration: none;
+
+}
+
+.content{
+    position : absolute;
+    top : 30%;
+    left : 60%; 
+    transform : translate(-50%,-50%);
+    width : 1100px;
+    height : 100px;
+    opacity: 0.8;
+
+}
+.content form{
+    
+   display : flex;
+   margin-left : 20px;
+   margin-top : 27px;
+}
+.content form input:nth-child(1) , .content form input:nth-child(2){
+    width : 500px;
+   height : 70px; 
+ border : none;
+     outline: none;
+     font-size : 15px;
+}
+.content form >input{
+    margin : 2px;
+}
+.content form input:nth-child(3){
+
+	
+	border : none;
+	
+	background-color: #465E51;
+	border-left: 1px solid #aaa;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	font-size: 18px;
+	outline: none;
+	cursor: pointer;
+	color: white;
+}

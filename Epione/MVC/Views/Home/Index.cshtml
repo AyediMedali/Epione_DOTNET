@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="hero_home version_1">
+        <div class="content">
+            <h3>Find a Doctor!</h3>
+            <p>
+                Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
+            </p>
+            <form method="post" action="http://www.ansonika.com/findoctor/list.html">
+                <div id="custom-search-input">
+                    <div class="input-group">
+                        <input type="text" class=" search-query" placeholder="Ex. Name, Specialization ....">
+                        <input type="submit" class="btn_search" value="Search">
+                    </div>
+                    <ul>
+                        <li>
+                            <input type="radio" id="all" name="radio_search" value="all" checked>
+                            <label for="all">All</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="doctor" name="radio_search" value="doctor">
+                            <label for="doctor">Doctor</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="clinic" name="radio_search" value="clinic">
+                            <label for="clinic">Clinic</label>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /Hero -->
+
+
+    <div class="container margin_120_95">
+        <div class="main_title">
+            <h2>Find your doctor or clinic</h2>
+            <p>Nec graeci sadipscing disputationi ne, mea ea nonumes percipitur. Nonumy ponderum oporteat cu mel, pro movet cetero at.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-5 col-md-6">
+                <div class="list_home">
+                    <div class="list_title">
+                        <i class="icon_pin_alt"></i>
+                        <h3>Search by City or Zone</h3>
+                    </div>
+                    <ul>
+                        <li><a href="list.html"><strong>23</strong>Albany</a></li>
+                        <li><a href="list.html"><strong>23</strong>Albuquerque</a></li>
+                        <li><a href="list.html"><strong>23</strong>Atlanta</a></li>
+                        <li><a href="list.html"><strong>23</strong>Baltimore</a></li>
+                        <li><a href="list.html"><strong>23</strong>Baton Rouge</a></li>
+                        <li><a href="list.html"><strong>23</strong>Birmingham</a></li>
+                        <li><a href="list.html"><strong>23</strong>Boston</a></li>
+                        <li><a href="list.html"><strong>23</strong>Buffalo</a></li>
+                        <li><a href="list.html"><strong>23</strong>Charleston</a></li>
+                        <li><a href="list.html">More...</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 col-md-6">
+                <div class="list_home">
+                    <div class="list_title">
+                        <i class="icon_archive_alt"></i>
+                        <h3>Search by type</h3>
+                    </div>
+                    <ul>
+                        <li><a href="list.html"><strong>23</strong>Allergist</a></li>
+                        <li><a href="list.html"><strong>23</strong>Cardiologist</a></li>
+                        <li><a href="list.html"><strong>23</strong>Chiropractor</a></li>
+                        <li><a href="list.html"><strong>23</strong>Dentist</a></li>
+                        <li><a href="list.html"><strong>23</strong>Dermatologist</a></li>
+                        <li><a href="list.html"><strong>23</strong>Gastroenterologist</a></li>
+                        <li><a href="list.html"><strong>23</strong>Ophthalmologist</a></li>
+                        <li><a href="list.html"><strong>23</strong>Optometrist</a></li>
+                        <li><a href="list.html"><strong>23</strong>Pediatrician</a></li>
+                        <li><a href="list.html">More....</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+
+
+</main>
+

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/templatePatient/css")
+    @Styles.Render("~/fontawesome/css")
+
+</head>
+<body>
+    <section class="header">
+        <div class="menu">
+            <div class="logo"><a href="index.html" style="text-decoration: none;color: white">Epione</a></div>
+            <div class="menu-content">
+                <button>Vous etes un particien ?</button>
+                <span><i class="fa fa-question-circle"></i>Besoin d'aide ?</span>
+                <span id="login"><i class="fa fa-user"></i>Mon compte</span>
+            </div>
+        </div>
+        <div class="barreRecherche">
+            <div class="content-barreRecherche">
+                <input type="text" name="" placeholder="Médecin, établissement, spécialité...">
+                <input type="text" name="" placeholder="Lieu ?">
+                <i class="fa fa-search"></i>
+                <i class="fa fa-map-marker-alt"></i>
+                <button>Rechercher</button>
+            </div>
+        </div>
+    </section>
+    <nav class="navMenu">
+        <ul>
+            <li><a href="#">Menu 1</a></li>
+            <li><a href="#">Menu 2</a></li>
+            <li><a href="#">Menu 3</a></li>
+            <li><a href="#">Menu 4</a></li>
+            <li><a href="#">Menu 5</a></li>
+            <li><a href="#">Menu 6</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

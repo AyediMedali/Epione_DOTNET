@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/MyStyle/css")
+    @Scripts.Render("~/MyScript/js")
+    @Styles.Render("~/fontawesome/css")
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Epione @ViewBag.result</div>
+        <div class="menu">
+            <button>Vous etes un particien ?</button>
+            <span><i class="fa fa-question-circle"></i>Besoin d'aide ?</span>
+            <span id="login"><i class="fa fa-user"></i>Mon compte</span>
+        </div>
+        <div class="arrow-up"></div>
+
+        <div class="form">
+            <div class="form-content">
+                @using (Html.BeginForm("LoginPatient", "User"))
+            {
+                    <form>
+                        <h2>Bienvenue à nouveau sur EPIONE</h2>
+                        <h3>Merci de vous identifier.</h3>
+                        <input type="text" name="email" required="" placeholder="Adresse email">
+                        <input type="password" name="password" required="" placeholder="Mot de passe">
+                        <a href="#">Mot de passe oublié ?</a>
+                        <input type="submit" name="" value="S'identifier">
+                    </form>
+                }
+                <h4>Vous êtes un praticien ? <a href="#" data-toggle="modal" data-target="#modalLoginForm">Identifiez vous </a></h4>
+            </div>
+
+        </div>
+    </div>
+    <div class="content">
+        <form class="">
+            <input type="text" class="form-control" name="critere" placeholder="Médecin, établissement, spécialité..." />
+            <input type="text" class="form-control" name="critere" placeholder="Lieu ?" />
+           
+            <input type="submit" class="" value="Rechercher" />
+            
+        </form>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

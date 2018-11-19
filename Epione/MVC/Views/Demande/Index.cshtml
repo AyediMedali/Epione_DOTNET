@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("Index", "Demande", FormMethod.Get))
+{
+    @Html.TextBox("email")
+    <input type="submit" value="Search" />
+}
+
+<table>
+    <tr>
+        <th>ff</th>
+        <th>ff</th>
+        <th>ff</th>
+        <th>email</th>
+        <th>Delete</th>
+        
+    </tr>
+
+    @foreach (var p in ViewBag.result)
+    {
+        <tr>
+            <td>@p.id</td>
+            <td>@p.firstName</td>
+            <td>@p.lastName</td>
+            <td>@p.email</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { email = p.email })</td>
+        </tr>
+
+    }
+</table>
