@@ -191,6 +191,7 @@
     <Compile Include="Controllers\rendezvousController.cs" />
     <Compile Include="Controllers\StatController.cs" />
     <Compile Include="Controllers\TrieAController.cs" />
+    <Compile Include="Controllers\TrieDController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -524,6 +525,7 @@
     <Content Include="Views\rendezvous\Edit.cshtml" />
     <Content Include="Views\rendezvous\Delete.cshtml" />
     <Content Include="Views\TrieA\Index.cshtml" />
+    <Content Include="Views\TrieD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
