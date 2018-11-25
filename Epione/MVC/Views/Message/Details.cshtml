@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<br /><br />
+<center>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle(1000);
+    });
+});
+    </script>
+
+
+
+    <table>
+        <tr>
+            <td>
+                <p style=" font-size : 12px ">message :</p><p style="  color : #e74e84 "> @ViewBag.details.content</p>
+                <p style="font-size : 12px">envoyé par : </p><p style="  color : #e74e84 ">@ViewBag.details.patient.email</p>
+
+            </td>
+            <td><button class="btn btn-default">Toggle message</button></td>
+        </tr>
+    </table>
+
+    <br /><br />
+
+
+    <table>
+        <tr>
+            <td>
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        <th>date d'envoi</th>
+                    </tr>
+                    @foreach (var a in ViewBag.dates)
+                    {
+                        <tr>
+                            <td><i class="icon_mail_alt"></i></td>
+                            <td>@a</td>
+                        </tr>
+                    }
+                </table>
+            </td>
+
+
+            <td>
+
+                <table class="table">
+                    <tr>
+
+                        <th>message</th>
+                        <th>expéditeur</th>
+                        <th></th>
+                        <th></th>
+
+
+
+                    </tr>
+
+                    @foreach (var p in ViewBag.result)
+                    {
+                        <tr>
+
+                            <td> @p.content </td>
+                            @if (@p.patient != null)
+                            {
+                                <td> @p.patient.email </td> }
+                            else
+                            {
+                                <td></td>
+                            }
+
+
+
+                            <td>
+                                @Html.ActionLink("Details", "Details", new { id = p.id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = p.id })
+                            </td>
+
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+
+
+
+</center>
+

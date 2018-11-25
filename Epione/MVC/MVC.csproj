@@ -187,6 +187,7 @@
     <Compile Include="Controllers\DoctolibController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\rendezvousController.cs" />
     <Compile Include="Controllers\StatController.cs" />
@@ -201,6 +202,8 @@
     <Compile Include="Models\doctorViewModel.cs" />
     <Compile Include="Models\horaireViewModel.cs" />
     <Compile Include="Models\journeeViewModel.cs" />
+    <Compile Include="Models\MessageDELETEViewModel.cs" />
+    <Compile Include="Models\MessageViewModel.cs" />
     <Compile Include="Models\MotifViewModel.cs" />
     <Compile Include="Models\PatientViewModel.cs" />
     <Compile Include="Models\rendezvousDELETEViewModel.cs" />
@@ -526,6 +529,10 @@
     <Content Include="Views\rendezvous\Delete.cshtml" />
     <Content Include="Views\TrieA\Index.cshtml" />
     <Content Include="Views\TrieD\Index.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\Details.cshtml" />
+    <Content Include="Views\Message\Create.cshtml" />
+    <Content Include="Views\Message\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
