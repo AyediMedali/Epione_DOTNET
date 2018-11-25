@@ -188,6 +188,7 @@
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\rendezvousController.cs" />
     <Compile Include="Controllers\StatController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -198,6 +199,10 @@
     <Compile Include="Models\doctorViewModel.cs" />
     <Compile Include="Models\horaireViewModel.cs" />
     <Compile Include="Models\journeeViewModel.cs" />
+    <Compile Include="Models\MotifViewModel.cs" />
+    <Compile Include="Models\PatientViewModel.cs" />
+    <Compile Include="Models\rendezvousDELETEViewModel.cs" />
+    <Compile Include="Models\rendezvousViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -514,6 +519,9 @@
     <Content Include="Views\Doctors\getlListMotifs.cshtml" />
     <Content Include="Views\Doctors\test.cshtml" />
     <Content Include="Views\User\LoginDoctor.cshtml" />
+    <Content Include="Views\rendezvous\Index.cshtml" />
+    <Content Include="Views\rendezvous\Edit.cshtml" />
+    <Content Include="Views\rendezvous\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
