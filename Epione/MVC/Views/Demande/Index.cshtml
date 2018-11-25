@@ -1,37 +1,87 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
 }
 
 <h2>Index</h2>
 
 
-@using (Html.BeginForm("Index", "Demande", FormMethod.Get))
+
+
+
+
+<section class="au-breadcrumb2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="au-breadcrumb-content">
+                    <div class="au-breadcrumb-left">
+                        <span class="au-breadcrumb-span">You are here:</span>
+                        <ul class="list-unstyled list-inline au-breadcrumb__list">
+                            <li class="list-inline-item active">
+                                <a href="#">Home</a>
+                            </li>
+                            <li class="list-inline-item seprate">
+                                <span>/</span>
+                            </li>
+                            <li class="list-inline-item">Dashboard</li>
+                        </ul>
+                    </div>
+                    @using (Html.BeginForm("Index", "Demande", FormMethod.Get, new { @class = "au-form-icon--sm" } ))
+                    {
+                        @Html.TextBox("email",  "Email du Docteur" , new { @class = "au-input--w300 au-input--style2" })
+                        <button class="au-btn--submit2" type="submit">
+                            <i class="zmdi zmdi-search"></i>
+                        </button>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+                                <!-- DATA TABLE-->
+<div class="table-responsive m-b-40">
+    <table class="table table-borderless table-data3">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nom </th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+@foreach (var p in ViewBag.result)
 {
-    @Html.TextBox("email")
-    <input type="submit" value="Search" />
+            <tr>
+                <td>@p.id</td>
+                <td>@p.firstName</td>
+                <td>@p.lastName</td>
+                <td>@p.email</td>
+                <td>
+                    <div class="col-lg-3 action">
+                        <div class="row ">
+                            @Html.ActionLink("Delete", "Delete", new { email = p.email } , new { @class = "btn btn-danger" })
+                    </div>
+
+                    </div>
+                </td>
+            </tr>
 }
+        </tbody>
+    </table>
+</div>
+<!-- END DATA TABLE-->
 
-<table>
-    <tr>
-        <th>ff</th>
-        <th>ff</th>
-        <th>ff</th>
-        <th>email</th>
-        <th>Delete</th>
-        
-    </tr>
 
-    @foreach (var p in ViewBag.result)
-    {
-        <tr>
-            <td>@p.id</td>
-            <td>@p.firstName</td>
-            <td>@p.lastName</td>
-            <td>@p.email</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { email = p.email })</td>
-        </tr>
-
-    }
-</table>
