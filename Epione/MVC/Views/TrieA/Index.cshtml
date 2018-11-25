@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Liste de vos rendez vous</h2>
+<br />
+Trier ma liste des rendez vous par date :
+
+@Html.ActionLink("asc", "Index", "TrieA")  | @Html.ActionLink("desc", "Index", "TrieD")
+
+<br />
+<br />
+
+<center>
+
+    <table>
+        <tr>
+            <td>
+
+                <table class="table">
+                    <tr>
+                        <th>date</th>
+                    </tr>
+                    @foreach (var a in ViewBag.dates)
+                    {
+                        <tr>
+                            <td>@a</td>
+                        </tr>
+                    }
+
+                </table>
+
+            </td>
+            <td>
+                <table class="table">
+                    <tr>
+
+                        <th>reason</th>
+                        <th>state</th>
+                        <th>type motif</th>
+                        <th></th>
+
+                    </tr>
+
+                    @foreach (var p in ViewBag.result)
+                    {
+                        <tr>
+
+                            <td>@p.reason</td>
+                            <td>"@p.state"</td>
+                            @if (@p.motif != null)
+                            {
+                                <td>@p.motif.type</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = p.identifiant }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = p.identifiant })
+                            </td>
+
+                        </tr>
+                    }
+
+                </table>
+
+            </td>
+
+        </tr>
+    </table>
+
+
+</center>
+
+
+
