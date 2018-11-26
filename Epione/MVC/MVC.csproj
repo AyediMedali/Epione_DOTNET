@@ -189,6 +189,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\PatientGeoController.cs" />
     <Compile Include="Controllers\rendezvousController.cs" />
     <Compile Include="Controllers\StatController.cs" />
     <Compile Include="Controllers\TrieAController.cs" />
@@ -197,8 +198,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\PagedData.cs" />
-    <Compile Include="Helper\Pagination.cs" />
+    <Compile Include="Models\AdresseViewModel.cs" />
     <Compile Include="Models\calendrierViewModel.cs" />
     <Compile Include="Models\DemandeViewModel.cs" />
     <Compile Include="Models\doctorViewModel.cs" />
@@ -207,6 +207,7 @@
     <Compile Include="Models\MessageDELETEViewModel.cs" />
     <Compile Include="Models\MessageViewModel.cs" />
     <Compile Include="Models\MotifViewModel.cs" />
+    <Compile Include="Models\PatientGeoViewModel.cs" />
     <Compile Include="Models\PatientViewModel.cs" />
     <Compile Include="Models\rendezvousDELETEViewModel.cs" />
     <Compile Include="Models\rendezvousViewModel.cs" />
@@ -226,7 +227,6 @@
     <Content Include="css\getJourneeSaisie.css" />
     <Content Include="css\motifStyles.css" />
     <Content Include="css\myStyle.css" />
-    <Content Include="css\rendezvous.css" />
     <Content Include="css\theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -536,6 +536,7 @@
     <Content Include="Views\Message\Details.cshtml" />
     <Content Include="Views\Message\Create.cshtml" />
     <Content Include="Views\Message\Delete.cshtml" />
+    <Content Include="Views\PatientGeo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
