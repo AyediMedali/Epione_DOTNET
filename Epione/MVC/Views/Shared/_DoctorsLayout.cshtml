@@ -27,18 +27,18 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-
                             <i class="fas fa-tachometer-alt"></i>@Html.ActionLink("Motifs", "getlListMotifs", "Doctors")
-
 
                         </li>
                         <li>
                             <i class="fas fa-tachometer-alt"></i>@Html.ActionLink("Calendrier", "Calendrier", "Doctors")
                         </li>
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables
-                            </a>
+                                <i class="fas fa-table"></i>@Html.ActionLink("Rendez Vous", "Index", "rendezvous")
+                            
+                        </li>
+                        <li>
+                            <i class="zmdi zmdi-email"></i>@Html.ActionLink("Messages", "Index", "Message")
                         </li>
                         <li>
                             <a href="form.html">

@@ -1,11 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
 }
 
-
-<h2>Liste de vos rendez vous</h2>
+@Styles.Render("~/rendezvousListe/css")
+<h3>Liste de vos rendez vous</h3>
 <br />
 Trier ma liste des rendez vous par date :
 
@@ -21,11 +21,13 @@ Trier ma liste des rendez vous par date :
 
                 <table class="table">
                     <tr>
+                        <th></th>
                         <th>date</th>
                     </tr>
                     @foreach (var a in ViewBag.dates)
                     {
                         <tr>
+                            <td><i class="fas fa-table"></i></td>
                             <td>@a</td>
                         </tr>
                     }

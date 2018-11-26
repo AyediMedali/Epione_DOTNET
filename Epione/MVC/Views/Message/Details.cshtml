@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
 }
 
 <h2>Details</h2>
@@ -23,11 +23,11 @@ $(document).ready(function(){
     <table>
         <tr>
             <td>
-                <p style=" font-size : 12px ">message :</p><p style="  color : #e74e84 "> @ViewBag.details.content</p>
-                <p style="font-size : 12px">envoyé par : </p><p style="  color : #e74e84 ">@ViewBag.details.patient.email</p>
+                <p style=" font-size : 12px ">message :</p><p style="  color : #4272d7 "> @ViewBag.details.content</p>
+                <p style="font-size : 12px">envoyé par : </p><p style="  color : #4272d7 ">@ViewBag.details.patient.email</p>
 
             </td>
-            <td><button class="btn btn-default">Toggle message</button></td>
+            <td><button class="btn btn-default">Show/hide message</button></td>
         </tr>
     </table>
 
@@ -45,7 +45,7 @@ $(document).ready(function(){
                     @foreach (var a in ViewBag.dates)
                     {
                         <tr>
-                            <td><i class="icon_mail_alt"></i></td>
+                            <td><i class="zmdi zmdi-email"></i></td>
                             <td>@a</td>
                         </tr>
                     }
