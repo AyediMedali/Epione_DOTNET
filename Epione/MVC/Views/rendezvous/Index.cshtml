@@ -3,13 +3,14 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
 }
-
-<h3>Liste de vos rendez vous</h3>
+@Styles.Render("~/motifsDoctor/css")
+<h3 class="margin">Liste de vos rendez vous</h3>
 <br />
-Trier ma liste des rendez vous par date :
+<div class="margin2">
+    Trier ma liste des rendez vous par date :
 
-@Html.ActionLink("asc", "Index", "TrieA")  | @Html.ActionLink("desc", "Index", "TrieD")
-
+    @Html.ActionLink("asc", "Index", "TrieA")  | @Html.ActionLink("desc", "Index", "TrieD")
+</div>
 <br />
 <br />
 <center>
@@ -79,4 +80,4 @@ Trier ma liste des rendez vous par date :
 </center>
 
 
-
+<br/><br /><br /><br /><br />

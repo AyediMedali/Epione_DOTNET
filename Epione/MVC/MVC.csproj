@@ -197,6 +197,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\PagedData.cs" />
+    <Compile Include="Helper\Pagination.cs" />
     <Compile Include="Models\calendrierViewModel.cs" />
     <Compile Include="Models\DemandeViewModel.cs" />
     <Compile Include="Models\doctorViewModel.cs" />
@@ -224,6 +226,7 @@
     <Content Include="css\getJourneeSaisie.css" />
     <Content Include="css\motifStyles.css" />
     <Content Include="css\myStyle.css" />
+    <Content Include="css\rendezvous.css" />
     <Content Include="css\theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
