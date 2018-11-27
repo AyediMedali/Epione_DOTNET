@@ -11,7 +11,7 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <style>
+    @*<style>
         #charContainer {
             widows: 450px;
             height: 400px;
@@ -29,7 +29,8 @@
             border-radius: 4px;
             center;
         }
-    </style>
+    </style>*@
+    
     <body>
 
         @using (Html.BeginForm("GeneratePDF", "Stat", FormMethod.Get))
@@ -39,7 +40,7 @@
         }
         <h2></h2>
        
-        <div class="col-lg-6">
+        @*<div class="col-lg-6">
             <div class="au-card m-b-30">
 
                 <div class="au-card-inner" id="charContaienr">
@@ -57,6 +58,128 @@
 
                     <h3 class="title-2 m-b-40">User Par date</h3>
                     <canvas id="userStat"></canvas>
+                </div>
+            </div>
+        </div>*@
+
+
+        <div class="main-content">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    
+                    <div class="row m-t-25">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="overview-item overview-item--c1">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="zmdi zmdi-account-o"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>@ViewBag.totalDoc</h2>
+                                            <span>Total des docteurs inscrits</span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <canvas id="widgetChart1"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="overview-item overview-item--c3">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="zmdi zmdi-calendar-note"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>@ViewBag.totalRdv</h2>
+                                            <span>Total des rendez vous</span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <canvas id="widgetChart3"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="overview-item overview-item--c4">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="zmdi zmdi-money"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>$ @ViewBag.totalTarif</h2>
+                                            <span>Total des revenus</span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <canvas id="widgetChart4"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="au-card recent-report">
+                                <div class="au-card-inner">
+                                    <h3 class="title-2">Activité de docteurs</h3>
+                                    <div class="chart-info">
+                                        <div class="chart-info__left">
+                                            <div class="chart-note">
+                                                <span class="dot dot--blue"></span>
+                                                <span>Nombre de docteurs inscrits</span>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="recent-report__chart" >
+                                        <canvas id="userStat"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="au-card chart-percent-card">
+                                <div class="au-card-inner">
+                                    <h3 class="title-2 tm-b-5">RDV completé / annulé</h3>
+                                    <div class="row no-gutters">
+                                        <div class="col-xl-6">
+                                            <div class="chart-note-wrap">
+                                                <div class="chart-note mr-0 d-block">
+                                                    <span class="dot dot--blue"></span>
+                                                    <span>Patients Traité</span>
+                                                </div>
+                                                <div class="chart-note mr-0 d-block">
+                                                    <span class="dot dot--red"></span>
+                                                    <span>RDV Annulés</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="percent-chart" id="charRDV">
+                                                <canvas id="rdvStat"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright">
+                                <p>Copyright © 2018 Colorlib. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,54 +221,68 @@
         <script>
 
 
-                    var userCanvas = document.getElementById("userStat");
-                    var repArray = @Html.Raw(Json.Encode(ViewBag.userNumbers));
-                    var dates = @Html.Raw(Json.Encode(ViewBag.userDates));
-                    //    var repArray = ViewBag.REP;
-                    //  var type=[4,3,4,3];
-                    var userData = {
-                        labels: dates ,
-                        datasets: [
-                            {
-                                data: repArray,
-                                backgroundColor: [
-                                  "#1988ff"
-
-
-                                ],
-
-                            }]
-                    };
-
-                    var lineChart = new Chart(userCanvas, {
-                        type: 'line',
-                        data: userData
-                    });
+                
 
 
         </script>
 
         <script>
+
+              
+                var userCanvas = document.getElementById("userStat");
+                var repArray = @Html.Raw(Json.Encode(ViewBag.userNumbers));
+                var dates = @Html.Raw(Json.Encode(ViewBag.userDates));
+                //    var repArray = ViewBag.REP;
+                //  var type=[4,3,4,3];
+                var userData = {
+                    labels: dates ,
+                    datasets: [
+                        {
+                            data: repArray,
+                            backgroundColor: [
+                              "#1988ff"
+
+
+                            ],
+
+                        }]
+                };
+            
+                lineChart = new Chart(userCanvas, {
+                    type: 'line',
+                    data: userData
+                });
+
+            
+
+
+            //    lineChart.data[33,66] ; 
+              //  lineChart.update() ; 
+           //     $.ajax({
+           //         url: '/Stat/getStat',
+           //         type: 'GET',
+           //         success: function(data) {
+           //             console.log("fel ajax") ;
+           //             lineChart.data = data ;
+           //             lineChart.update();
+           //             x=data ;
+
+
+           //         },
+           //         error: function() {
+           //             alert('error');
+           //         }
+           //     });//End Ajax
+            
+           //setInterval(paint, 3000);
+
+
             $(function(){
-                $(document).ready(function()
-                {
-                    $('#start').click(function(){
-                        $.ajax({
-                            url: '/Stat/getStat',
-                            type: 'GET',
-                            success: function(data) {
-                                lineChart.data = data ; 
-                                lineChart.update();
-                                $( "#userStat" ).load("#userStat");
+   
+                $('#start').click(function(){
+           
 
-
-                            },
-                            error: function() {
-                                alert('error');
-                            }
-                        });//End Ajax
                     })
-                })
             })
 
         </script>
@@ -158,6 +295,20 @@
         {
             <h4>@x</h4>
         }
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
 
 
 

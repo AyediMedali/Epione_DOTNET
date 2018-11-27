@@ -19,5 +19,24 @@ namespace Service.Stats
         {
 
         }
+        public int getDoctorNumber()
+        {
+            int result = (from m in dbf.DataContext.doctors
+                          select m).Count();
+            return result; 
+        }
+        public double getTotalTarif()
+        {
+            double result = (from m in dbf.DataContext.tarifs
+                             select m.tarif1).Sum();
+
+            return result;
+        }
+        public int getTotalRdv()
+        {
+            int result = (from m in dbf.DataContext.rendezvous
+                          select m).Count();
+            return result;
+        }
     }
 }

@@ -81,5 +81,52 @@ namespace MVC.Controllers
 
 
         }
+
+
+
+        public ActionResult LoginAdmin()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult LoginAdmin(String email, String password)
+        {
+            HttpClient client = new HttpClient();
+
+
+            client.BaseAddress = new Uri("http://localhost:18080");
+            HttpResponseMessage response = client.PostAsync("Epione-web/rest/users/logIn?email=" + email + "&password=" + password + "", null).Result;
+            var jsonString = response.Content.ReadAsStringAsync();
+
+           
+                return RedirectToAction("Index", "Stat");
+        
+
+
+        }
+        public ActionResult LoginDoctor2()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult LoginDoctor2(String email, String password)
+        {
+            HttpClient client = new HttpClient();
+
+
+            client.BaseAddress = new Uri("http://localhost:18080");
+            HttpResponseMessage response = client.PostAsync("Epione-web/rest/users/logIn?email=" + email + "&password=" + password + "", null).Result;
+            var jsonString = response.Content.ReadAsStringAsync();
+
+
+            return RedirectToAction("Index", "Doctors");
+
+
+
+        }
+
+
     }
 }

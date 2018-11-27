@@ -24,6 +24,7 @@ namespace MVC.Controllers
         demandeService ds = new demandeService();
         RdvService rs = new RdvService();
         PatientStat ps = new PatientStat();
+        doctorService docS = new doctorService();
 
 
 
@@ -74,6 +75,11 @@ namespace MVC.Controllers
 
             var userDates = dates;
             var userNumbers = numbers;
+
+            ViewBag.totalDoc = docS.getDoctorNumber();
+            ViewBag.totalRdv = docS.getTotalRdv();
+            ViewBag.totalTarif = docS.getTotalTarif();
+
 
             ViewBag.jsonStat = Json("Response", JsonRequestBehavior.AllowGet);
             ViewBag.userDates = userDates;

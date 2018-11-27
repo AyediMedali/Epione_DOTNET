@@ -539,7 +539,8 @@
     <Content Include="Views\Message\Create.cshtml" />
     <Content Include="Views\Message\Delete.cshtml" />
     <Content Include="Views\PatientGeo\Index.cshtml" />
-
+    <Content Include="Views\User\LoginAdmin.cshtml" />
+    <Content Include="Views\User\LoginDoctor2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
