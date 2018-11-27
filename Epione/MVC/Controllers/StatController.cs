@@ -79,6 +79,7 @@ namespace MVC.Controllers
             ViewBag.totalDoc = docS.getDoctorNumber();
             ViewBag.totalRdv = docS.getTotalRdv();
             ViewBag.totalTarif = docS.getTotalTarif();
+            ViewBag.test = userData.Count();
 
 
             ViewBag.jsonStat = Json("Response", JsonRequestBehavior.AllowGet);

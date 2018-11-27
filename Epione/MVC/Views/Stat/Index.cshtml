@@ -33,11 +33,7 @@
     
     <body>
 
-        @using (Html.BeginForm("GeneratePDF", "Stat", FormMethod.Get))
-        {
-            @Html.TextBox("email")
-            <input type="submit" value="Search" />
-        }
+      
         <h2></h2>
        
         @*<div class="col-lg-6">
@@ -256,25 +252,41 @@
             
 
 
-            //    lineChart.data[33,66] ; 
-              //  lineChart.update() ; 
-           //     $.ajax({
-           //         url: '/Stat/getStat',
-           //         type: 'GET',
-           //         success: function(data) {
-           //             console.log("fel ajax") ;
-           //             lineChart.data = data ;
-           //             lineChart.update();
-           //             x=data ;
+          /*      lineChart.data = [33,55] ; 
+                lineChart.update() ;*/
+                var paint = function(){
+                    $.ajax({
+                        url: '/Stat/getStat',
+                        type: 'GET',
+                        success: function(data) {
+                            console.log("fel ajax") ;
+                            var array = data;
+                            var temp = {
+                                labels: dates ,
+                                datasets: [
+                                    {
+                                        data: array ,
+                                        backgroundColor: [
+                                          "#1988ff"
 
 
-           //         },
-           //         error: function() {
-           //             alert('error');
-           //         }
-           //     });//End Ajax
+                                        ],
+
+                                    }]
+                            };
+                            lineChart.data = temp ;
+                            lineChart.update();
+
+
+                        },
+                        error: function() {
+                            alert('error');
+                        }
+                    });//End Ajax
+                }
+                
             
-           //setInterval(paint, 3000);
+           setInterval(paint, 3000);
 
 
             $(function(){
@@ -286,20 +298,11 @@
             })
 
         </script>
-        <button id="start">lancer</button>
-        @foreach (var x in @ViewBag.userDates)
-        {
-            <h4>@x</h4>
-        }
-        @foreach (var x in @ViewBag.userNumbers)
-        {
-            <h4>@x</h4>
-        }
+       
 
 
 
-
-
+      <h4>@ViewBag.test</h4> 
 
 
 
