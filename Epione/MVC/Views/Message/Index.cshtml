@@ -4,45 +4,38 @@
     Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
 }
 @Styles.Render("~/motifsDoctor/css")
-<h3 class="margin">Liste de vos rendez vous</h3>
-<br />
-<div class="margin2">
-    Trier ma liste des rendez vous par date :
-
-    @Html.ActionLink("asc", "Index", "TrieA")  | @Html.ActionLink("desc", "Index", "TrieD")
-</div>
-<br />
-<br />
+<h3 class="margin2">Mes messages</h3>
+<br/><br/>
 <center>
-
     <table>
         <tr>
             <td>
-
                 <table class="table">
                     <tr>
                         <th></th>
-                        <th>date</th>
+                        <th>date d'envoi</th>
                     </tr>
                     @foreach (var a in ViewBag.dates)
                     {
-                        <tr>
-                            <td><i class="fas fa-table"></i></td>
-                            <td>@a</td>
-                        </tr>
+                <tr>
+                    <td><i class="zmdi zmdi-email"></i></td>
+                    <td>@a</td>
+                </tr>
                     }
-
                 </table>
-
             </td>
+
+
             <td>
+
                 <table class="table">
                     <tr>
 
-                        <th>reason</th>
-                        <th>state</th>
-                        <th>type motif</th>
+                        <th>message</th>
+                        <th>expéditeur</th>
                         <th></th>
+                        <th></th>
+
 
                     </tr>
 
@@ -50,34 +43,27 @@
                     {
                         <tr>
 
-                            <td>@p.reason</td>
-                            <td>"@p.state"</td>
-                            @if (@p.motif != null)
+                            <td> @p.content </td>
+                            @if (@p.patient != null)
                             {
-                                <td>@p.motif.type</td>
-                            }
+                                <td> @p.patient.email </td> }
                             else
                             {
                                 <td></td>
                             }
 
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = p.identifiant }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = p.identifiant })
+                                @Html.ActionLink("Details", "Details", new { id = p.id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = p.id })
                             </td>
 
                         </tr>
                     }
-
                 </table>
-
             </td>
-
         </tr>
     </table>
 
 
 </center>
 
-
-<br/><br /><br /><br /><br />

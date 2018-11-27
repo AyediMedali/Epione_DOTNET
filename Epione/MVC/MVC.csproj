@@ -187,19 +187,27 @@
     <Compile Include="Controllers\DoctolibController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\PatientGeoController.cs" />
     <Compile Include="Controllers\rendezvousController.cs" />
     <Compile Include="Controllers\StatController.cs" />
+    <Compile Include="Controllers\TrieAController.cs" />
+    <Compile Include="Controllers\TrieDController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdresseViewModel.cs" />
     <Compile Include="Models\calendrierViewModel.cs" />
     <Compile Include="Models\DemandeViewModel.cs" />
     <Compile Include="Models\doctorViewModel.cs" />
     <Compile Include="Models\horaireViewModel.cs" />
     <Compile Include="Models\journeeViewModel.cs" />
+    <Compile Include="Models\MessageDELETEViewModel.cs" />
+    <Compile Include="Models\MessageViewModel.cs" />
     <Compile Include="Models\MotifViewModel.cs" />
+    <Compile Include="Models\PatientGeoViewModel.cs" />
     <Compile Include="Models\PatientViewModel.cs" />
     <Compile Include="Models\rendezvousDELETEViewModel.cs" />
     <Compile Include="Models\rendezvousViewModel.cs" />
@@ -524,6 +532,14 @@
     <Content Include="Views\rendezvous\Delete.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Demande\ConfirmDemande.cshtml" />
+    <Content Include="Views\TrieA\Index.cshtml" />
+    <Content Include="Views\TrieD\Index.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\Details.cshtml" />
+    <Content Include="Views\Message\Create.cshtml" />
+    <Content Include="Views\Message\Delete.cshtml" />
+    <Content Include="Views\PatientGeo\Index.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

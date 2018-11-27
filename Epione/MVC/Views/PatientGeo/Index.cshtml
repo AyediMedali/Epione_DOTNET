@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
+}
+@Styles.Render("~/motifsDoctor/css")
+<h3 class="margin2">Liste des patients</h3>
+<br/><br/>
+
+<center>
+
+    <table class="table">
+        <tr>
+
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>adresse mail</th>
+            <th>contacter</th>
+            <th>adresse</th>
+            
+        </tr>
+
+        @foreach (var p in ViewBag.result)
+        {
+            <tr>
+
+                <td>@p.firstName</td>
+                <td>@p.lastName</td>
+                <td>@p.email</td>
+                <td>@p.phoneNumber</td>
+                <td>
+                    <a href="https://www.google.com/maps/place/ @p.adresse.ville" target="" class="btn gmap" role="button" onclick="window.open('https://www.google.com/maps/place/ @p.adresse.ville',
+                         'newwindow',
+                         'width=600,height=400');
+              return false;">@p.adresse.ville</a>
+        </td>
+        <td></td>
+
+    </tr>
+        }
+    </table>
+
+
+</center>
+
+
+
+

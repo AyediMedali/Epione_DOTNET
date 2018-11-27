@@ -27,38 +27,33 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-
                             <i class="fas fa-tachometer-alt"></i>@Html.ActionLink("Motifs", "getlListMotifs", "Doctors")
-
 
                         </li>
                         <li>
                             <i class="fas fa-tachometer-alt"></i>@Html.ActionLink("Calendrier", "Calendrier", "Doctors")
                         </li>
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables
-                            </a>
+                                <i class="fas fa-table"></i>@Html.ActionLink("Rendez Vous", "Index", "rendezvous")
+                            
                         </li>
                         <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms
-                            </a>
+                            <i class="zmdi zmdi-email"></i>@Html.ActionLink("Messages", "Index", "Message")
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
+                                <i class="far fa-check-square"></i>@Html.ActionLink("Forms", "Index", "Form")
+                            
                         </li>
                         <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps
-                            </a>
+                                <i class="fas fa-calendar-alt"></i>@Html.ActionLink("Calendar", "Index", "Calendar")
+                            
+                        </li>
+                        <li>
+                                <i class="fas fa-map-marker-alt"></i>@Html.ActionLink("Maps", "Index", "Map")
                         </li>
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages
-                            </a>
+                                <i class="fas fa-copy"></i>@Html.ActionLink("Pages", "Index", "Page")
+                     
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="login.html">Login</a>
