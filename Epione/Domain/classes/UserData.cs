@@ -15,5 +15,9 @@ namespace Domain.classes
             UserNumber = users;
             date = date2;
         }
+        public UserData()
+        {
+
+        }
     }
 }

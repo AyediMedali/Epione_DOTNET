@@ -124,6 +124,32 @@
 
 
         </script>
+
+        <script>
+            $(function(){
+                $(document).ready(function()
+                {
+                    $('#start').click(function(){
+                        $.ajax({
+                            url: '/Stat/getStat',
+                            type: 'GET',
+                            success: function(data) {
+                                lineChart.data = data ; 
+                                lineChart.update();
+                                $( "#userStat" ).load("#userStat");
+
+
+                            },
+                            error: function() {
+                                alert('error');
+                            }
+                        });//End Ajax
+                    })
+                })
+            })
+
+        </script>
+        <button id="start">lancer</button>
         @foreach (var x in @ViewBag.userDates)
         {
             <h4>@x</h4>

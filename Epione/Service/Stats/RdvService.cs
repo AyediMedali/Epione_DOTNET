@@ -97,5 +97,45 @@ namespace Service.Stats
 
 
 
+
+        public List<UserData> getUserNumbers()
+        {
+            // var docs = (from m in dbf.DataContext.doctors
+            //           select m).ToList();
+            var docs = ds.GetAll();
+            List<UserData> DataSet = new List<UserData>();
+
+            foreach(var i in docs)
+            {
+                UserData temp = new UserData();
+                int number = 0;
+                bool test = false;
+                if (DataSet.Exists(x => x.date.Month.Equals(i.dateCreation.Value.Month) && x.date.Year.Equals(i.dateCreation.Value.Year)))
+                    {
+                    test = true;
+                     }
+                if(!test)
+                {
+                    foreach (var j in docs)
+                    {
+                        if (i.dateCreation.Value.Month.Equals(j.dateCreation.Value.Month) && i.dateCreation.Value.Year.Equals(j.dateCreation.Value.Year))
+                        {
+                            number++;
+                        }
+                    }
+
+                    temp.date = i.dateCreation.Value;
+                    temp.UserNumber = number;
+                    DataSet.Add(temp);
+                }
+                
+            }
+
+            return DataSet;
+        }
+
+
+
+
         }
 }

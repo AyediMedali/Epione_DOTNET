@@ -12,6 +12,7 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using Domain.classes;
 using System.Data;
+using System.Web.Services;
 
 namespace MVC.Controllers
 {
@@ -23,7 +24,7 @@ namespace MVC.Controllers
         demandeService ds = new demandeService();
         RdvService rs = new RdvService();
         PatientStat ps = new PatientStat();
-        
+
 
 
         // GET: Stat
@@ -60,7 +61,7 @@ namespace MVC.Controllers
             ViewBag.REJ = dataStat[1];
 
 
-            List<UserData> userData = rs.getUserPer();
+            List<UserData> userData = rs.getUserNumbers();
             List<string> dates = new List<string>();
             List<int> numbers = new List<int>();
 
@@ -74,6 +75,7 @@ namespace MVC.Controllers
             var userDates = dates;
             var userNumbers = numbers;
 
+            ViewBag.jsonStat = Json("Response", JsonRequestBehavior.AllowGet);
             ViewBag.userDates = userDates;
             ViewBag.userNumbers = userNumbers;
             System.Diagnostics.Debug.WriteLine("***********************************");
@@ -214,6 +216,21 @@ namespace MVC.Controllers
                 ViewBag.ERROR = " Patient existe pas ";
                 return 0; 
             }
+        }
+
+
+        public ActionResult getStat()
+        {
+            List<UserData> userData = rs.getUserNumbers();
+            List<string> dates = new List<string>();
+            List<int> numbers = new List<int>();
+            foreach (var x in userData)
+            {
+                dates.Add(x.date.Month + " " + x.date.Year);
+                numbers.Add(x.UserNumber);
+            }
+            // return Json( new { success = true } , JsonRequestBehavior.AllowGet);
+            return new JsonResult { Data = numbers, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }
 }
