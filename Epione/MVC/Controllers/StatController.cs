@@ -10,6 +10,8 @@ using Service;
 using Service.Stats;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
+using Domain.classes;
+using System.Data;
 
 namespace MVC.Controllers
 {
@@ -56,6 +58,28 @@ namespace MVC.Controllers
            // ViewBag.REP = accepted.Count();
             ViewBag.ACC = dataStat[0];
             ViewBag.REJ = dataStat[1];
+
+
+            List<UserData> userData = rs.getUserPer();
+            List<string> dates = new List<string>();
+            List<int> numbers = new List<int>();
+
+ 
+            foreach (var x in userData)
+            {
+                dates.Add(x.date.Month + " "+x.date.Year);
+                numbers.Add(x.UserNumber);
+                           }
+
+            var userDates = dates;
+            var userNumbers = numbers;
+
+            ViewBag.userDates = userDates;
+            ViewBag.userNumbers = userNumbers;
+            System.Diagnostics.Debug.WriteLine("***********************************");
+            System.Diagnostics.Debug.WriteLine("***********************************");
+            System.Diagnostics.Debug.WriteLine("***********************************");
+            System.Diagnostics.Debug.WriteLine("***********************************");
 
 
             return View();

@@ -10,12 +10,16 @@ namespace MVC.Models
     {
         public int id { get; set; }
 
+        [Required]
         public string firstName { get; set; }
 
+        [Required]
         public string lastName { get; set; }
 
+        [Required]
         public string specialite { get; set; }
 
+        [Required]
         public string ville { get; set; }
 
         [Display(Name = "Email address")]

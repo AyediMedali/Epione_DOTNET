@@ -522,6 +522,8 @@
     <Content Include="Views\rendezvous\Index.cshtml" />
     <Content Include="Views\rendezvous\Edit.cshtml" />
     <Content Include="Views\rendezvous\Delete.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Demande\ConfirmDemande.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

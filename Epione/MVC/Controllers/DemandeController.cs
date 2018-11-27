@@ -67,21 +67,27 @@ namespace MVC.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:18080");
-               // client.PostAsJsonAsync<DemandeViewModel>("Epione-web/rest/doctolib/ajoutDemande", demande)/*.ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode())*/;
-
-           
-                var result = client.PostAsJsonAsync<DemandeViewModel>("Epione-web/rest/doctolib/ajoutDemande", demande).Result;
-
-                if(result.IsSuccessStatusCode)
+                if (demande.email.Length > 0 && demande.firstName.Length > 0 && demande.lastName.Length > 0 && demande.specialite.Length > 0 && demande.ville.Length > 0 && demande.email.Length > 0)
                 {
-                   return RedirectToAction("Index");
-                }
-                else
+                    // TODO: Add insert logic here
+                    HttpClient client = new HttpClient();
+                    client.BaseAddress = new Uri("http://localhost:18080");
+                    // client.PostAsJsonAsync<DemandeViewModel>("Epione-web/rest/doctolib/ajoutDemande", demande)/*.ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode())*/;
+
+
+                    var result = client.PostAsJsonAsync<DemandeViewModel>("Epione-web/rest/doctolib/ajoutDemande", demande).Result;
+
+                    if (result.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction("ConfirmDemande");
+                    }
+                    else
+                    {
+                        ViewBag.result = "Demande existe deja";
+                    }
+                }else
                 {
-                    ViewBag.result = "Demande existe deja";
+                    ViewBag.result = "Tout les champs sont obligatoire ! ";
                 }
                 return View();
             }
@@ -136,6 +142,11 @@ namespace MVC.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult ConfirmDemande()
+        {
+            return View();
         }
     }
 }

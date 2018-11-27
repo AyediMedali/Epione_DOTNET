@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_DoctorsLayout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 
@@ -37,38 +37,104 @@
             @Html.TextBox("email")
             <input type="submit" value="Search" />
         }
-        <h2>Nombre de patients traités et taux d'annulation</h2>
-        <div id="charContainer">
-            <canvas id="jobtype"></canvas>
+        <h2></h2>
+       
+        <div class="col-lg-6">
+            <div class="au-card m-b-30">
 
+                <div class="au-card-inner" id="charContaienr">
+
+                    <h3 class="title-2 m-b-40">Taux des Patients Traités et Rendez vous annulé</h3>
+                    <canvas id="rdvStat"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="au-card m-b-30">
+
+                <div class="au-card-inner" id="charContaienr">
+
+                    <h3 class="title-2 m-b-40">User Par date</h3>
+                    <canvas id="userStat"></canvas>
+                </div>
+            </div>
         </div>
 
 
+
+
+                <script>
+     
+                    var rdvCanvas = document.getElementById("rdvStat");
+                    var repArray = [@ViewBag.ACC,@ViewBag.REJ];
+                    //    var repArray = ViewBag.REP;
+                    //  var type=[4,3,4,3];
+                    var rdvData = {
+                        labels: ['Traité', 'Annulé'],
+                        datasets: [
+                            {
+                                data: repArray,
+                                backgroundColor: [
+                                  "#1988ff"
+
+
+                                ]
+                            }]
+                    };
+
+                    var pieChart = new Chart(rdvCanvas, {
+                        type: 'pie',
+                        data: rdvData
+                    });
+
+
+                </script>
+
+
+
+
+
         <script>
-            var oilCanvas = document.getElementById("jobtype");
-            var repArray= [@ViewBag.ACC,@ViewBag.REJ] ;
-        //    var repArray = ViewBag.REP;
-         //  var type=[4,3,4,3];
-            var oilData = {
-                labels: ['Traité','Annulé'],
-                datasets: [
-                    {
-                        data: repArray,
-                        backgroundColor: [
-                          "#63FF84"  ,
-                            "#FF6384"
 
-                        ]
-                    }]
-            };
 
-            var pieChart = new Chart(oilCanvas, {
-                type: 'doughnut',
-                data: oilData
-            });
+                    var userCanvas = document.getElementById("userStat");
+                    var repArray = @Html.Raw(Json.Encode(ViewBag.userNumbers));
+                    var dates = @Html.Raw(Json.Encode(ViewBag.userDates));
+                    //    var repArray = ViewBag.REP;
+                    //  var type=[4,3,4,3];
+                    var userData = {
+                        labels: dates ,
+                        datasets: [
+                            {
+                                data: repArray,
+                                backgroundColor: [
+                                  "#1988ff"
+
+
+                                ],
+
+                            }]
+                    };
+
+                    var lineChart = new Chart(userCanvas, {
+                        type: 'line',
+                        data: userData
+                    });
 
 
         </script>
-    </body>
+        @foreach (var x in @ViewBag.userDates)
+        {
+            <h4>@x</h4>
+        }
+        @foreach (var x in @ViewBag.userNumbers)
+        {
+            <h4>@x</h4>
+        }
+
+
+
+</body>
 </head>
 </html>

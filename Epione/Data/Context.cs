@@ -29,6 +29,8 @@ namespace Data
         public virtual DbSet<rendezvou> rendezvous { get; set; }
         public virtual DbSet<tarif> tarifs { get; set; }
         public virtual DbSet<treatment> treatments { get; set; }
+        public virtual DbSet<admin> admin { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -274,6 +276,26 @@ namespace Data
 
             modelBuilder.Entity<treatment>()
                 .Property(e => e.result)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.firstName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.lastName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.token)
                 .IsUnicode(false);
         }
     }

@@ -111,7 +111,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stats\doctorService.cs" />
     <Compile Include="Stats\demandeService.cs" />
+    <Compile Include="Stats\IDoctorService.cs" />
     <Compile Include="Stats\IDemandeService.cs" />
     <Compile Include="Stats\IRdvServices.cs" />
     <Compile Include="Stats\IPatientStat.cs" />

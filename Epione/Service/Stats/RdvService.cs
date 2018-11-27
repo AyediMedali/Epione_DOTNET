@@ -1,19 +1,23 @@
-﻿using Domain.Entity;
+﻿using Domain.classes;
+using Domain.Entity;
 using Epione.Data.Infrastructure;
 using Epione.ServicePattern;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Service.Stats
 {
+    
     public class RdvService : Service<rendezvou>, IRdvServices
     {
         static IDatabaseFactory dbf = new DatabaseFactory();
 
         static IUnitOfWork uow = new UnitOfWork(dbf);
+        doctorService ds = new doctorService();
 
         public RdvService() : base(uow)
         {
@@ -27,6 +31,8 @@ namespace Service.Stats
             var accepted = (from m in dbf.DataContext.rendezvous
                             select m).ToList();
 
+            
+
             List<rendezvou> acceptRDV = new List<rendezvou>();
             List<rendezvou> rejectRDV = new List<rendezvou>();
 
@@ -38,12 +44,58 @@ namespace Service.Stats
                 else rejectRDV.Add(i);
 
             }
-            result.Add(acceptRDV.Count()); result.Add(rejectRDV.Count());
+            
+            
+            result.Add(acceptRDV.Count());  result.Add(rejectRDV.Count());
+            
             return result;
 
 
         }
+        public List<UserData> getUserPer()
+        {
+            var docs = (from m in dbf.DataContext.doctors
+                            select m).ToList();
+            bool DateExist = false;
+            List <UserData> DataSet = new List<UserData>();
+            foreach(var set in docs )
+            {
+                      
+                if (DataSet.Count()==0)
+                {
+                    int users = ds.GetMany(x => x.dateCreation.Value.Month.Equals(set.dateCreation.Value.Month)
+                                                && x.dateCreation.Value.Year.Equals(set.dateCreation.Value.Year)).Count();
+                    DateTime dateRes = set.dateCreation.Value;
+                    DataSet.Add(new UserData(users, dateRes));
+                }
+                DateExist = false;
+                DateTime DateTemp= new DateTime();
+                foreach  (var j in DataSet)
+                {
+                    
+                    if(set.dateCreation.Value.Month.Equals(j.date.Month) && set.dateCreation.Value.Year.Equals(j.date.Year) )
+                    {
+                        DateExist = true;
+                    }
+                                       
+                }
+                if (DateExist==false)
+                {
+                    int users = ds.GetMany(x => x.dateCreation.Value.Month.Equals(set.dateCreation.Value.Month)
+                                             && x.dateCreation.Value.Year.Equals(set.dateCreation.Value.Year)).Count();
+                    DateTime dateRes = set.dateCreation.Value;
+                    DataSet.Add(new UserData(users, dateRes));
+                    System.Diagnostics.Debug.WriteLine("***********************************");
+                    System.Diagnostics.Debug.WriteLine("users : " + users);
+
+                }
+                DateExist = true; 
+            }
+
+            return DataSet;
+        }
 
 
-    }
+
+        }
 }
