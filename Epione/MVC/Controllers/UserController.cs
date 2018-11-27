@@ -126,6 +126,10 @@ namespace MVC.Controllers
 
 
         }
+        public ActionResult Logout2()
+        {
+            return RedirectToAction("Index", "Home");
+        }
 
 
     }
